@@ -6,6 +6,7 @@
 　(1+1+2 と 1+2+1 は同じ)
 ヒント:m個の正整数の和になる場合と，m-1個以下の正整数の和になる場合で分ける
 */
+// https://algo-logic.info/partition_with_k/
 
 #include <bits/stdc++.h>
 using namespace std;
