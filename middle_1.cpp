@@ -14,17 +14,22 @@ using namespace std;
 int main(){
     int n, m;
     cin >> n >> m;
-    vector<vector<int>> Table(n, vector<int>(k, 0));
+    vector<vector<int>> Table(n + 1, vector<int>(n + 1, 0));
 
     Table[0][0] = 1;
     for (int i = 1; i < n + 1; i++) {
-        for (int j = 1; j < m + 1; j++) {
+        for (int j = 1; j < n + 1; j++) {
             if (i - j >= 0) {
-                Table[i][j] = (Table[i - 1][j - 1] + Table[i - j][j]) % MOD;
+                Table[i][j] = (Table[i - 1][j - 1] + Table[i - j][j]);
             } else {
                 Table[i][j] = Table[i - 1][j - 1];
             }
         }
     }
-    cout << p[n][m] << endl;
+
+    int ans = 0;
+    for (int i = 1; i < m + 1; i++) {
+            ans += Table[n][i];
+    }
+    cout << ans << endl;
 }
